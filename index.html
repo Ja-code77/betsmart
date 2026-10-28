@@ -50,13 +50,13 @@ footer{text-align:center;color:#6f86b3;font-size:12.5px;padding:40px 5vw 60px;li
 .apparait{opacity:0;transform:translateY(30px);transition:all .9s ease}.apparait.vu{opacity:1;transform:none}
 </style></head><body>
 <canvas id="ciel"></canvas><div class="grille"></div>
-<div class="bandeau">Ce site présente <b>uniquement l'historique</b> des signaux. L'accès aux signaux en direct, sur <b>Telegram</b>, ouvrira en <b class="ma">2027</b> · <a href="#liste">rejoindre la liste d'attente</a></div>
-<header><div class="logo"><b>BET</b>SMART</div><nav><a href="#resultats">Résultats</a><a href="#historique">Historique</a><a href="#calculateur">Calculateur</a><a href="#projection">Projection</a><a href="#liste">2027</a></nav></header>
+<div class="bandeau" data-i18n="bandeau">Ce site présente <b>uniquement l'historique</b> des signaux. L'accès aux signaux en direct, sur <b>Telegram</b>, ouvrira en <b class="ma">2027</b> · <a href="#liste">rejoindre la liste d'attente</a></div>
+<header><div class="logo"><b>BET</b>SMART</div><nav><a href="#resultats" data-i18n="nav_res">Résultats</a><a href="#historique" data-i18n="nav_hist">Historique</a><a href="#calculateur" data-i18n="nav_calc">Calculateur</a><a href="#projection" data-i18n="nav_proj">Projection</a><a href="#liste">2027</a><button type="button" id="langue" title="English / Français" style="margin-left:14px;background:transparent;border:1px solid var(--cy);color:var(--cy);border-radius:999px;padding:4px 12px;font-weight:700;cursor:pointer;letter-spacing:1px">EN</button></nav></header>
 
 <section class="heros">
   <h1><b>BET</b>SMART</h1><div class="trait"></div>
-  <div class="accroche">L'information arrive. Le marché suit.</div>
-  <div class="sous">Basket et hockey · chaque signal horodaté avant le coup d'envoi · résultats mis à jour chaque heure</div>
+  <div class="accroche" data-i18n="accroche">L'information arrive. Le marché suit.</div>
+  <div class="sous" data-i18n="sous">Basket et hockey · chaque signal horodaté avant le coup d'envoi · résultats mis à jour chaque heure</div>
   <div class="kpis" id="kpis"></div>
 </section>
 
@@ -67,27 +67,27 @@ footer{text-align:center;color:#6f86b3;font-size:12.5px;padding:40px 5vw 60px;li
 </section>
 
 <section id="resultats" class="apparait">
-  <h2>Résultats</h2><p>Évolution d'une caisse de <span id="caisseRef"></span> avec une mise fixe de <span id="miseRef"></span> par signal.</p>
+  <h2 data-i18n="h_res">Résultats</h2><p data-i18n="p_res">Évolution d'une caisse de <span id="caisseRef"></span> avec une mise fixe de <span id="miseRef"></span> par signal.</p>
   <div class="carte"><canvas class="courbe" id="courbe"></canvas></div>
   <div class="kpis" id="parSport" style="margin-top:22px"></div>
 </section>
 
 <section id="historique" class="apparait">
-  <h2>Historique</h2><p>Tous les signaux, jour par jour. Rien n'est retiré, les pertes comprises. Gains pour une mise de 20 €.</p>
-  <div class="onglets" id="filtres"><button data-f="tous" class="actif">Tous</button><button data-f="basket">Basket</button><button data-f="hockey">Hockey</button></div>
+  <h2 data-i18n="h_hist">Historique</h2><p data-i18n="p_hist">Tous les signaux, jour par jour. Rien n'est retiré, les pertes comprises. Gains pour une mise de 20 €.</p>
+  <div class="onglets" id="filtres"><button data-f="tous" class="actif" data-i18n="tous">Tous</button><button data-f="basket" data-i18n="basket">Basket</button><button data-f="hockey">Hockey</button></div>
   <div id="jours"></div>
 </section>
 
 <section id="calculateur" class="apparait">
-  <h2>Calculateur</h2><p>Et si vous aviez suivi tous les signaux depuis le premier jour ?</p>
+  <h2 data-i18n="h_calc">Calculateur</h2><p data-i18n="p_calc">Et si vous aviez suivi tous les signaux depuis le premier jour ?</p>
   <div class="calc">
     <div class="carte">
-      <label for="capital">Votre capital de départ (€)</label>
+      <label for="capital" data-i18n="l_capital">Votre capital de départ (€)</label>
       <input type="number" id="capital" min="100" step="100" value="1000">
-      <label for="miseSaisie">Votre mise par signal (€)</label>
+      <label for="miseSaisie" data-i18n="l_mise">Votre mise par signal (€)</label>
       <input type="number" id="miseSaisie" min="1" step="1">
       <div class="mise" id="mise"></div>
-      <label class="coche"><input type="checkbox" id="reinvestir" checked> Réinvestir les gains (la mise suit le capital)</label>
+      <label class="coche"><input type="checkbox" id="reinvestir" checked> <span data-i18n="l_reinv">Réinvestir les gains (la mise suit le capital)</span></label>
     </div>
     <div class="carte">
       <div class="res" id="resultat"></div>
@@ -97,20 +97,20 @@ footer{text-align:center;color:#6f86b3;font-size:12.5px;padding:40px 5vw 60px;li
 </section>
 
 <section id="projection" class="apparait">
-  <h2>Projection</h2><p>Et si la tendance actuelle continuait ? Deux scénarios, au rythme actuel des signaux.</p>
+  <h2 data-i18n="h_proj">Projection</h2><p data-i18n="p_proj">Et si la tendance actuelle continuait ? Deux scénarios, au rythme actuel des signaux.</p>
   <div class="calc">
     <div class="carte">
-      <label for="pCapital">Capital de départ (€)</label>
+      <label for="pCapital" data-i18n="l_pcapital">Capital de départ (€)</label>
       <input type="number" id="pCapital" min="100" step="100" value="1000">
-      <label for="pMise">Mise par signal (€)</label>
+      <label for="pMise" data-i18n="l_pmise">Mise par signal (€)</label>
       <input type="number" id="pMise" min="1" step="1">
       <div class="mise" id="pConseil"></div>
-      <label for="pDuree">Durée</label>
+      <label for="pDuree" data-i18n="l_duree">Durée</label>
       <div class="onglets" id="pDuree" style="margin:0;flex-wrap:wrap">
-        <button type="button" data-m="1">1 mois</button><button type="button" data-m="3" class="actif">3 mois</button>
-        <button type="button" data-m="6">6 mois</button><button type="button" data-m="12">1 an</button>
+        <button type="button" data-m="1" data-i18n="m1">1 mois</button><button type="button" data-m="3" class="actif" data-i18n="m3">3 mois</button>
+        <button type="button" data-m="6" data-i18n="m6">6 mois</button><button type="button" data-m="12" data-i18n="m12">1 an</button>
       </div>
-      <label class="coche"><input type="checkbox" id="pReinvestir" checked> Réinvestir les gains</label>
+      <label class="coche"><input type="checkbox" id="pReinvestir" checked> <span data-i18n="l_preinv">Réinvestir les gains</span></label>
     </div>
     <div class="carte">
       <div class="res" id="pResultat"></div>
@@ -121,36 +121,77 @@ footer{text-align:center;color:#6f86b3;font-size:12.5px;padding:40px 5vw 60px;li
 </section>
 
 <section id="liste" class="apparait">
-  <h2>Liste d'attente 2027</h2><p>Les signaux en direct ouvriront sur Telegram en 2027. Laissez votre pseudo : vous serez contacté en priorité à l'ouverture.</p>
-  <form id="formulaire" class="carte" style="max-width:640px;position:relative">
+  <h2 data-i18n="h_liste">Liste d'attente 2027</h2><p data-i18n="p_liste">Les signaux en direct ouvriront sur Telegram en 2027. Laissez votre nom d'utilisateur Telegram : vous serez contacté en priorité à l'ouverture.</p>
+  <form id="formulaire" novalidate class="carte" style="max-width:640px;position:relative">
     <!-- piege a robots : invisible pour un humain, rempli par les programmes automatiques ;
          Formspree rejette tout envoi ou il n'est pas vide (champ _gotcha) -->
     <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
       <label for="site_web">Ne pas remplir</label><input type="text" id="site_web" name="_gotcha" tabindex="-1" autocomplete="off">
     </div>
-    <label for="pseudo">Pseudo Telegram ou nom unique</label>
-    <input type="text" id="pseudo" name="pseudo" required maxlength="40" placeholder="@votre_pseudo" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(63,243,255,.45);border-radius:10px;color:var(--bl);font-size:20px;padding:12px 14px;outline:none">
-    <label>Combien seriez-vous prêt à payer par mois ?</label>
-    <div id="prix" style="display:flex;flex-wrap:wrap;gap:10px">
-      <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="10 € / mois" required> 10 € / mois</label> <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="20 € / mois"> 20 € / mois</label> <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="30 € / mois"> 30 € / mois</label> <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="50 € / mois"> 50 € / mois</label> <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="plus de 50 € / mois"> plus de 50 € / mois</label>
+    <label for="pseudo" data-i18n="l_pseudo">Nom d'utilisateur Telegram</label>
+    <input type="text" id="pseudo" name="pseudo" required maxlength="33" placeholder="@nom_utilisateur" autocomplete="off" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(63,243,255,.45);border-radius:10px;color:var(--bl);font-size:20px;padding:12px 14px;outline:none">
+    <div id="aidePseudo" data-i18n="aide_pseudo" style="color:var(--gr);font-size:12.5px;margin-top:6px">Celui qui commence par @ (Telegram → Réglages → Nom d'utilisateur).</div>
+    <label data-i18n="l_prix">Combien seriez-vous prêt à payer par mois ?</label>
+    <div id="prix" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="20" required> 20 €</label>
+      <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="30"> 30 €</label>
+      <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="50"> 50 €</label>
+      <label class="coche" style="margin:0;border:1px solid rgba(63,243,255,.35);border-radius:999px;padding:8px 16px"><input type="radio" name="prix" value="libre"> <span data-i18n="autre">Autre montant</span></label>
+      <span id="blocLibre" style="display:none;align-items:center;gap:8px"><input type="number" id="montantLibre" min="20" step="1" placeholder="20" style="width:120px;font-size:18px;padding:8px 10px"> <span data-i18n="par_mois">€ / mois</span></span>
     </div>
-    <button type="submit" style="margin-top:22px;width:100%;padding:14px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--ma),var(--cy));color:#04050d;font-weight:800;font-size:18px;letter-spacing:2px;cursor:pointer;box-shadow:0 0 24px rgba(255,63,216,.4)">JE M'INSCRIS</button>
-    <div id="retour" style="margin-top:14px;color:var(--gr);font-size:14px">Aucune adresse e-mail ni donnée bancaire demandée. Seul votre pseudo est conservé.</div>
+    <div data-i18n="min20" style="color:var(--gr);font-size:12.5px;margin-top:6px">Minimum 20 € par mois.</div>
+    <button type="submit" data-i18n="bouton" style="margin-top:22px;width:100%;padding:14px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--ma),var(--cy));color:#04050d;font-weight:800;font-size:18px;letter-spacing:2px;cursor:pointer;box-shadow:0 0 24px rgba(255,63,216,.4)">JE M'INSCRIS</button>
+    <div id="retour" style="margin-top:14px;color:var(--gr);font-size:14px" data-i18n="retour0">Aucune adresse e-mail ni donnée bancaire demandée. Seul votre nom d'utilisateur Telegram est conservé.</div>
   </form>
 </section>
 
-<footer>
-  Résultats d'un suivi en conditions réelles : chaque signal est enregistré avant le match, à la cote disponible à ce moment-là.
+<footer><span data-i18n="pied">Résultats d'un suivi en conditions réelles : chaque signal est enregistré avant le match, à la cote disponible à ce moment-là.
   Les performances passées ne préjugent pas des performances futures. Aucun gain n'est garanti.<br>
-  Jouer comporte des risques : endettement, dépendance… Appelez le 09 74 75 13 13 (appel non surtaxé). Interdit aux moins de 18 ans.<br>
+  Jouer comporte des risques : endettement, dépendance… Appelez le 09 74 75 13 13 (appel non surtaxé). Interdit aux moins de 18 ans.</span><br>
   <span id="maj"></span>
 </footer>
 
 <script>
-const D = {"genere_le": "2026-10-28T17:21:40+00:00", "caisse_reference": 1000.0, "mise_reference": 20.0, "adresse_formulaire": "https://formspree.io/f/xvkkrzwq", "paris": [{"date": "2026-10-17T14:00:00Z", "ligue": "Finlande - Liiga", "famille": "hockey", "domicile": "SaiPa", "exterieur": "HIFK", "marche": "buts_exterieur", "sens": "plus", "ligne": 2.5, "cote": 2.3, "reel": 1, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-17T15:00:00Z", "ligue": "Autriche - ICE Hockey League", "famille": "hockey", "domicile": "Milano HC", "exterieur": "Hydro Fehervar AV 19", "marche": "buts_exterieur", "sens": "plus", "ligne": 2.5, "cote": 2.1, "reel": 3, "gain": 22.0, "mise": 20.0}, {"date": "2026-10-17T16:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "Kids&Us Manresa", "exterieur": "Unicaja", "marche": "points_exterieur", "sens": "moins", "ligne": 93.5, "cote": 1.78, "reel": 84, "gain": 15.6, "mise": 20.0}, {"date": "2026-10-17T17:45:00Z", "ligue": "Suisse - National League", "famille": "hockey", "domicile": "HC Ajoie", "exterieur": "EV Zug", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.96, "reel": 3, "gain": 19.2, "mise": 20.0}, {"date": "2026-10-17T19:30Z", "ligue": "NHL", "famille": "hockey", "domicile": "Winnipeg Jets", "exterieur": "Carolina Hurricanes", "marche": "total_buts", "sens": "moins", "ligne": 6.5, "cote": 1.9, "reel": 5, "gain": 18.0, "mise": 20.0}, {"date": "2026-10-18T01:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Los Angeles Kings", "exterieur": "Boston Bruins", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.9, "reel": 5, "gain": 18.0, "mise": 20.0}, {"date": "2026-10-18T10:00:00Z", "ligue": "Italie - Lega Basket", "famille": "basket", "domicile": "Napoli Basketball", "exterieur": "Armani Olimpia Milano", "marche": "points_domicile", "sens": "moins", "ligne": 87.5, "cote": 1.78, "reel": 82, "gain": 15.6, "mise": 20.0}, {"date": "2026-10-18T15:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "Valencia Basket", "exterieur": "UCAM Murcia", "marche": "points_exterieur", "sens": "moins", "ligne": 86.5, "cote": 1.91, "reel": 93, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-18T15:00:00Z", "ligue": "Tchequie - Extraliga", "famille": "hockey", "domicile": "BANES Motor \u010cesk\u00e9 Bud\u011bjovice", "exterieur": "Ryt\u00ed\u0159i Kladno", "marche": "buts_domicile", "sens": "moins", "ligne": 2.5, "cote": 1.86, "reel": 2, "gain": 17.2, "mise": 20.0}, {"date": "2026-10-18T16:00:00Z", "ligue": "Italie - Lega Basket", "famille": "basket", "domicile": "Tezenis Verona", "exterieur": "UNA Hotels Reggio Emilia", "marche": "points_exterieur", "sens": "moins", "ligne": 83.5, "cote": 1.82, "reel": 81, "gain": 16.4, "mise": 20.0}, {"date": "2026-10-19T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Philadelphia Flyers", "exterieur": "Colorado Avalanche", "marche": "buts_domicile", "sens": "moins", "ligne": 2.5, "cote": 1.66, "reel": 3, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-19T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Philadelphia Flyers", "exterieur": "Colorado Avalanche", "marche": "total_buts", "sens": "moins", "ligne": 6.5, "cote": 1.73, "reel": 5, "gain": 14.6, "mise": 20.0}, {"date": "2026-10-20T15:30:00Z", "ligue": "Finlande - Liiga", "famille": "hockey", "domicile": "Lukko", "exterieur": "HIFK", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.76, "reel": 4, "gain": 15.2, "mise": 20.0}, {"date": "2026-10-22T00:30Z", "ligue": "NBA", "famille": "basket", "domicile": "Houston Rockets", "exterieur": "Dallas Mavericks", "marche": "points_exterieur", "sens": "moins", "ligne": 109.5, "cote": 1.92, "reel": 110, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-22T23:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Philadelphia 76ers", "exterieur": "Cleveland Cavaliers", "marche": "points_exterieur", "sens": "moins", "ligne": 117.5, "cote": 1.87, "reel": 106, "gain": 17.4, "mise": 20.0}, {"date": "2026-10-22T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Pittsburgh Penguins", "exterieur": "Florida Panthers", "marche": "total_buts", "sens": "moins", "ligne": 6.5, "cote": 1.93, "reel": 4, "gain": 18.6, "mise": 20.0}, {"date": "2026-10-24T14:00:00Z", "ligue": "Finlande - Liiga", "famille": "hockey", "domicile": "Pelicans", "exterieur": "Tappara", "marche": "total_buts", "sens": "moins", "ligne": 4.5, "cote": 1.92, "reel": 8, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-24T19:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "Bar\u00e7a", "exterieur": "Casademont Zaragoza", "marche": "points_exterieur", "sens": "moins", "ligne": 87.5, "cote": 1.81, "reel": 81, "gain": 16.2, "mise": 20.0}, {"date": "2026-10-24T22:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Charlotte Hornets", "exterieur": "Miami Heat", "marche": "points_exterieur", "sens": "moins", "ligne": 115.5, "cote": 1.92, "reel": 110, "gain": 18.4, "mise": 20.0}, {"date": "2026-10-24T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Boston Bruins", "exterieur": "San Jose Sharks", "marche": "buts_exterieur", "sens": "moins", "ligne": 2.5, "cote": 1.91, "reel": 4, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-25T01:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Denver Nuggets", "exterieur": "New Orleans Pelicans", "marche": "points_exterieur", "sens": "moins", "ligne": 114.5, "cote": 1.82, "reel": 135, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-25T13:00:00Z", "ligue": "Suisse - National League", "famille": "hockey", "domicile": "SC Bern", "exterieur": "HC Lugano", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.84, "reel": 2, "gain": 16.8, "mise": 20.0}, {"date": "2026-10-25T13:45:00Z", "ligue": "Autriche - ICE Hockey League", "famille": "hockey", "domicile": "Vienna Capitals", "exterieur": "Moser Medical Graz99ers", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.68, "reel": 5, "gain": 13.6, "mise": 20.0}, {"date": "2026-10-25T16:00:00Z", "ligue": "Tchequie - Extraliga", "famille": "hockey", "domicile": "Mountfield HK, a.s.", "exterieur": "HC DYNAMO PARDUBICE", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.73, "reel": 2, "gain": 14.6, "mise": 20.0}, {"date": "2026-10-25T17:30:00Z", "ligue": "Italie - Lega Basket", "famille": "basket", "domicile": "UNA Hotels Reggio Emilia", "exterieur": "Acqua S.Bernardo Cant\u00f9", "marche": "points_domicile", "sens": "moins", "ligne": 86.5, "cote": 1.8, "reel": 81, "gain": 16.0, "mise": 20.0}, {"date": "2026-10-25T18:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "iLERNA Lleida", "exterieur": "Real Madrid", "marche": "points_domicile", "sens": "moins", "ligne": 89.5, "cote": 1.84, "reel": 86, "gain": 16.8, "mise": 20.0}, {"date": "2026-10-26T01:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Sacramento Kings", "exterieur": "Memphis Grizzlies", "marche": "points_domicile", "sens": "moins", "ligne": 115.5, "cote": 1.92, "reel": 112, "gain": 18.4, "mise": 20.0}, {"date": "2026-10-26T23:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Charlotte Hornets", "exterieur": "Washington Wizards", "marche": "points_domicile", "sens": "moins", "ligne": 114.5, "cote": 1.97, "reel": 110, "gain": 19.4, "mise": 20.0}, {"date": "2026-10-27T00:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Oklahoma City Thunder", "exterieur": "Phoenix Suns", "marche": "points_exterieur", "sens": "moins", "ligne": 106.5, "cote": 1.88, "reel": 114, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-27T02:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Denver Nuggets", "exterieur": "Golden State Warriors", "marche": "points_domicile", "sens": "moins", "ligne": 121.5, "cote": 1.92, "reel": 114, "gain": 18.4, "mise": 20.0}, {"date": "2026-10-28T00:00Z", "ligue": "NBA", "famille": "basket", "domicile": "New York Knicks", "exterieur": "Detroit Pistons", "marche": "points_domicile", "sens": "moins", "ligne": 111.5, "cote": 1.91, "reel": 111, "gain": 18.2, "mise": 20.0}]};
-const eur = (v, d = 0) => v.toLocaleString("fr-FR", { minimumFractionDigits: d, maximumFractionDigits: d }) + " €";
-const pct = (v, d = 1) => (v >= 0 ? "+" : "") + (100 * v).toLocaleString("fr-FR", { minimumFractionDigits: d, maximumFractionDigits: d }) + " %";
-const num = v => String(v).replace(".", ",");
+const D = {"genere_le": "2026-10-28T18:14:01+00:00", "caisse_reference": 1000.0, "mise_reference": 20.0, "adresse_formulaire": "https://formspree.io/f/xvkkrzwq", "paris": [{"date": "2026-10-17T14:00:00Z", "ligue": "Finlande - Liiga", "famille": "hockey", "domicile": "SaiPa", "exterieur": "HIFK", "marche": "buts_exterieur", "sens": "plus", "ligne": 2.5, "cote": 2.3, "reel": 1, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-17T15:00:00Z", "ligue": "Autriche - ICE Hockey League", "famille": "hockey", "domicile": "Milano HC", "exterieur": "Hydro Fehervar AV 19", "marche": "buts_exterieur", "sens": "plus", "ligne": 2.5, "cote": 2.1, "reel": 3, "gain": 22.0, "mise": 20.0}, {"date": "2026-10-17T16:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "Kids&Us Manresa", "exterieur": "Unicaja", "marche": "points_exterieur", "sens": "moins", "ligne": 93.5, "cote": 1.78, "reel": 84, "gain": 15.6, "mise": 20.0}, {"date": "2026-10-17T17:45:00Z", "ligue": "Suisse - National League", "famille": "hockey", "domicile": "HC Ajoie", "exterieur": "EV Zug", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.96, "reel": 3, "gain": 19.2, "mise": 20.0}, {"date": "2026-10-17T19:30Z", "ligue": "NHL", "famille": "hockey", "domicile": "Winnipeg Jets", "exterieur": "Carolina Hurricanes", "marche": "total_buts", "sens": "moins", "ligne": 6.5, "cote": 1.9, "reel": 5, "gain": 18.0, "mise": 20.0}, {"date": "2026-10-18T01:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Los Angeles Kings", "exterieur": "Boston Bruins", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.9, "reel": 5, "gain": 18.0, "mise": 20.0}, {"date": "2026-10-18T10:00:00Z", "ligue": "Italie - Lega Basket", "famille": "basket", "domicile": "Napoli Basketball", "exterieur": "Armani Olimpia Milano", "marche": "points_domicile", "sens": "moins", "ligne": 87.5, "cote": 1.78, "reel": 82, "gain": 15.6, "mise": 20.0}, {"date": "2026-10-18T15:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "Valencia Basket", "exterieur": "UCAM Murcia", "marche": "points_exterieur", "sens": "moins", "ligne": 86.5, "cote": 1.91, "reel": 93, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-18T15:00:00Z", "ligue": "Tchequie - Extraliga", "famille": "hockey", "domicile": "BANES Motor \u010cesk\u00e9 Bud\u011bjovice", "exterieur": "Ryt\u00ed\u0159i Kladno", "marche": "buts_domicile", "sens": "moins", "ligne": 2.5, "cote": 1.86, "reel": 2, "gain": 17.2, "mise": 20.0}, {"date": "2026-10-18T16:00:00Z", "ligue": "Italie - Lega Basket", "famille": "basket", "domicile": "Tezenis Verona", "exterieur": "UNA Hotels Reggio Emilia", "marche": "points_exterieur", "sens": "moins", "ligne": 83.5, "cote": 1.82, "reel": 81, "gain": 16.4, "mise": 20.0}, {"date": "2026-10-19T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Philadelphia Flyers", "exterieur": "Colorado Avalanche", "marche": "buts_domicile", "sens": "moins", "ligne": 2.5, "cote": 1.66, "reel": 3, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-19T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Philadelphia Flyers", "exterieur": "Colorado Avalanche", "marche": "total_buts", "sens": "moins", "ligne": 6.5, "cote": 1.73, "reel": 5, "gain": 14.6, "mise": 20.0}, {"date": "2026-10-20T15:30:00Z", "ligue": "Finlande - Liiga", "famille": "hockey", "domicile": "Lukko", "exterieur": "HIFK", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.76, "reel": 4, "gain": 15.2, "mise": 20.0}, {"date": "2026-10-22T00:30Z", "ligue": "NBA", "famille": "basket", "domicile": "Houston Rockets", "exterieur": "Dallas Mavericks", "marche": "points_exterieur", "sens": "moins", "ligne": 109.5, "cote": 1.92, "reel": 110, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-22T23:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Philadelphia 76ers", "exterieur": "Cleveland Cavaliers", "marche": "points_exterieur", "sens": "moins", "ligne": 117.5, "cote": 1.87, "reel": 106, "gain": 17.4, "mise": 20.0}, {"date": "2026-10-22T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Pittsburgh Penguins", "exterieur": "Florida Panthers", "marche": "total_buts", "sens": "moins", "ligne": 6.5, "cote": 1.93, "reel": 4, "gain": 18.6, "mise": 20.0}, {"date": "2026-10-24T14:00:00Z", "ligue": "Finlande - Liiga", "famille": "hockey", "domicile": "Pelicans", "exterieur": "Tappara", "marche": "total_buts", "sens": "moins", "ligne": 4.5, "cote": 1.92, "reel": 8, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-24T19:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "Bar\u00e7a", "exterieur": "Casademont Zaragoza", "marche": "points_exterieur", "sens": "moins", "ligne": 87.5, "cote": 1.81, "reel": 81, "gain": 16.2, "mise": 20.0}, {"date": "2026-10-24T22:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Charlotte Hornets", "exterieur": "Miami Heat", "marche": "points_exterieur", "sens": "moins", "ligne": 115.5, "cote": 1.92, "reel": 110, "gain": 18.4, "mise": 20.0}, {"date": "2026-10-24T23:00Z", "ligue": "NHL", "famille": "hockey", "domicile": "Boston Bruins", "exterieur": "San Jose Sharks", "marche": "buts_exterieur", "sens": "moins", "ligne": 2.5, "cote": 1.91, "reel": 4, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-25T01:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Denver Nuggets", "exterieur": "New Orleans Pelicans", "marche": "points_exterieur", "sens": "moins", "ligne": 114.5, "cote": 1.82, "reel": 135, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-25T13:00:00Z", "ligue": "Suisse - National League", "famille": "hockey", "domicile": "SC Bern", "exterieur": "HC Lugano", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.84, "reel": 2, "gain": 16.8, "mise": 20.0}, {"date": "2026-10-25T13:45:00Z", "ligue": "Autriche - ICE Hockey League", "famille": "hockey", "domicile": "Vienna Capitals", "exterieur": "Moser Medical Graz99ers", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.68, "reel": 5, "gain": 13.6, "mise": 20.0}, {"date": "2026-10-25T16:00:00Z", "ligue": "Tchequie - Extraliga", "famille": "hockey", "domicile": "Mountfield HK, a.s.", "exterieur": "HC DYNAMO PARDUBICE", "marche": "total_buts", "sens": "moins", "ligne": 5.5, "cote": 1.73, "reel": 2, "gain": 14.6, "mise": 20.0}, {"date": "2026-10-25T17:30:00Z", "ligue": "Italie - Lega Basket", "famille": "basket", "domicile": "UNA Hotels Reggio Emilia", "exterieur": "Acqua S.Bernardo Cant\u00f9", "marche": "points_domicile", "sens": "moins", "ligne": 86.5, "cote": 1.8, "reel": 81, "gain": 16.0, "mise": 20.0}, {"date": "2026-10-25T18:00:00Z", "ligue": "Espagne - Liga ACB", "famille": "basket", "domicile": "iLERNA Lleida", "exterieur": "Real Madrid", "marche": "points_domicile", "sens": "moins", "ligne": 89.5, "cote": 1.84, "reel": 86, "gain": 16.8, "mise": 20.0}, {"date": "2026-10-26T01:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Sacramento Kings", "exterieur": "Memphis Grizzlies", "marche": "points_domicile", "sens": "moins", "ligne": 115.5, "cote": 1.92, "reel": 112, "gain": 18.4, "mise": 20.0}, {"date": "2026-10-26T23:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Charlotte Hornets", "exterieur": "Washington Wizards", "marche": "points_domicile", "sens": "moins", "ligne": 114.5, "cote": 1.97, "reel": 110, "gain": 19.4, "mise": 20.0}, {"date": "2026-10-27T00:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Oklahoma City Thunder", "exterieur": "Phoenix Suns", "marche": "points_exterieur", "sens": "moins", "ligne": 106.5, "cote": 1.88, "reel": 114, "gain": -20.0, "mise": 20.0}, {"date": "2026-10-27T02:00Z", "ligue": "NBA", "famille": "basket", "domicile": "Denver Nuggets", "exterieur": "Golden State Warriors", "marche": "points_domicile", "sens": "moins", "ligne": 121.5, "cote": 1.92, "reel": 114, "gain": 18.4, "mise": 20.0}, {"date": "2026-10-28T00:00Z", "ligue": "NBA", "famille": "basket", "domicile": "New York Knicks", "exterieur": "Detroit Pistons", "marche": "points_domicile", "sens": "moins", "ligne": 111.5, "cote": 1.91, "reel": 111, "gain": 18.2, "mise": 20.0}]};
+// ---------- langue (FR / EN) ----------
+// Le texte francais est celui ecrit dans la page ; l'anglais est dans EN ci-dessous.
+// Choix memorise sur l'appareil ; ?lang=en force l'anglais (lien a partager).
+let LANG = (new URLSearchParams(location.search).get("lang") || (function () { try { return localStorage.getItem("betsmart_langue"); } catch (e) { return null; } })() || "fr") === "en" ? "en" : "fr";
+let LOC = LANG === "en" ? "en-GB" : "fr-FR";
+const T = (fr, en) => LANG === "en" ? en : fr;
+const EN = {
+  bandeau: "This site shows <b>only the track record</b> of our signals. Live signals, on <b>Telegram</b>, launch in <b class=\"ma\">2027</b> · <a href=\"#liste\">join the waiting list</a>",
+  nav_res: "Results", nav_hist: "History", nav_calc: "Calculator", nav_proj: "Projection",
+  accroche: "Information arrives. The market follows.",
+  sous: "Basketball and hockey · every signal time-stamped before tip-off · results updated every hour",
+  h_res: "Results", p_res: "Growth of a <span id=\"caisseRef\"></span> bankroll with a flat <span id=\"miseRef\"></span> stake per signal.",
+  h_hist: "History", p_hist: "Every signal, day by day. Nothing removed, losses included. Profit shown for a €20 stake.",
+  tous: "All", basket: "Basketball",
+  h_calc: "Calculator", p_calc: "What if you had followed every signal since day one?",
+  l_capital: "Your starting bankroll (€)", l_mise: "Your stake per signal (€)", l_reinv: "Reinvest profits (stake follows the bankroll)",
+  h_proj: "Projection", p_proj: "What if the current trend continued? Two scenarios, at the current signal pace.",
+  l_pcapital: "Starting bankroll (€)", l_pmise: "Stake per signal (€)", l_duree: "Duration",
+  m1: "1 month", m3: "3 months", m6: "6 months", m12: "1 year", l_preinv: "Reinvest profits",
+  h_liste: "2027 waiting list", p_liste: "Live signals open on Telegram in 2027. Leave your Telegram username: you will be contacted first when we launch.",
+  l_pseudo: "Telegram username", aide_pseudo: "The one starting with @ (Telegram → Settings → Username).",
+  l_prix: "How much would you be willing to pay per month?", autre: "Other amount", par_mois: "€ / month", min20: "Minimum €20 per month.",
+  bouton: "SIGN ME UP", retour0: "No e-mail address or bank details required. Only your Telegram username is kept.",
+  pied: "Results tracked in real conditions: every signal is recorded before the game, at the odds available at that moment. Past performance does not guarantee future results. No profit is guaranteed.<br>Gambling involves risks: debt, addiction… Get help: BeGambleAware.org · 18+ only."
+};
+const FR = {};
+document.querySelectorAll("[data-i18n]").forEach(e => FR[e.dataset.i18n] = e.innerHTML);
+function appliquerLangue() {
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-i18n]").forEach(e => { const k = e.dataset.i18n; e.innerHTML = LANG === "en" && EN[k] ? EN[k] : FR[k]; });
+  document.getElementById("pseudo").placeholder = T("@nom_utilisateur", "@username");
+  document.getElementById("langue").textContent = LANG === "en" ? "FR" : "EN";
+  document.title = T("BetSmart — historique des signaux basket et hockey", "BetSmart — basketball and hockey signals track record");
+}
+appliquerLangue();
+const eur = (v, d = 0) => { const s = Math.abs(v).toLocaleString(LOC, { minimumFractionDigits: d, maximumFractionDigits: d });
+  return LANG === "en" ? (v < 0 ? "-" : "") + "€" + s : (v < 0 ? "-" : "") + s + " €"; };
+const pct = (v, d = 1) => (v >= 0 ? "+" : "") + (100 * v).toLocaleString(LOC, { minimumFractionDigits: d, maximumFractionDigits: d }) + (LANG === "en" ? "%" : " %");
+const num = v => LANG === "en" ? String(v) : String(v).replace(".", ",");
 function jourParis(iso) {   // AAAA-MM-JJ du jour a Paris, quel que soit le navigateur
   try {
     const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date(iso));
@@ -158,20 +199,20 @@ function jourParis(iso) {   // AAAA-MM-JJ du jour a Paris, quel que soit le navi
     return v.year + "-" + v.month + "-" + v.day;
   } catch (e) { return String(iso).slice(0, 10); }
 }
-const heureParis = iso => new Date(iso).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" });
-const jourLong = j => new Date(j + "T12:00:00").toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+const heureParis = iso => new Date(iso).toLocaleTimeString(LOC, { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" });
+const jourLong = j => new Date(j + "T12:00:00").toLocaleDateString(LOC, { weekday: "long", day: "numeric", month: "long" });
 
 const soldes = D.paris.filter(p => p.gain !== null && p.gain !== undefined);
 const enCours = D.paris.filter(p => p.gain === null || p.gain === undefined);
 
 function libellePari(p) {
-  const sens = p.sens === "plus" ? "Plus" : "Moins", l = num(p.ligne);
-  if (p.marche === "points_domicile") return `${p.domicile} · ${sens} de ${l} pts`;
-  if (p.marche === "points_exterieur") return `${p.exterieur} · ${sens} de ${l} pts`;
-  if (p.marche === "buts_domicile") return `${p.domicile} · ${sens} de ${l} buts`;
-  if (p.marche === "buts_exterieur") return `${p.exterieur} · ${sens} de ${l} buts`;
-  if (p.marche === "total_buts") return `Total du match · ${sens} de ${l} buts`;
-  return `${sens} de ${l}`;
+  const sens = p.sens === "plus" ? T("Plus de", "Over") : T("Moins de", "Under"), l = num(p.ligne), pts = T("pts", "pts"), buts = T("buts", "goals");
+  if (p.marche === "points_domicile") return `${p.domicile} · ${sens} ${l} ${pts}`;
+  if (p.marche === "points_exterieur") return `${p.exterieur} · ${sens} ${l} ${pts}`;
+  if (p.marche === "buts_domicile") return `${p.domicile} · ${sens} ${l} ${buts}`;
+  if (p.marche === "buts_exterieur") return `${p.exterieur} · ${sens} ${l} ${buts}`;
+  if (p.marche === "total_buts") return `${T("Total du match", "Match total")} · ${sens} ${l} ${buts}`;
+  return `${sens} ${l}`;
 }
 function bilan(lot) {
   const mises = lot.reduce((s, p) => s + p.mise, 0), gain = lot.reduce((s, p) => s + p.gain, 0);
@@ -180,15 +221,17 @@ function bilan(lot) {
 
 // ---------- KPIs ----------
 const B = bilan(soldes);
+function rendreKpis() {
 document.getElementById("caisseRef").textContent = eur(D.caisse_reference);
 document.getElementById("miseRef").textContent = eur(D.mise_reference);
-const kpis = [[B.n, "signaux soldés", "cy"], [B.n ? Math.round(100 * B.g / B.n) + " %" : "—", "de réussite", "ve"],
-              [pct(B.rend), "rendement", "ve"], [eur(D.caisse_reference + B.gain), "caisse", "or"]];
+const kpis = [[B.n, T("signaux soldés", "settled signals"), "cy"], [B.n ? Math.round(100 * B.g / B.n) + (LANG === "en" ? "%" : " %") : "—", T("de réussite", "win rate"), "ve"],
+              [pct(B.rend), T("rendement", "yield"), "ve"], [eur(D.caisse_reference + B.gain), T("caisse", "bankroll"), "or"]];
 document.getElementById("kpis").innerHTML = kpis.map(([v, l, c]) => `<div class="carte kpi"><div class="v ${c}" data-cible="${v}">${v}</div><div class="l">${l}</div></div>`).join("");
 document.getElementById("parSport").innerHTML = ["basket", "hockey"].map(f => {
   const b = bilan(soldes.filter(p => p.famille === f));
-  return `<div class="carte kpi"><div class="l">${f}</div><div class="v ${b.gain >= 0 ? "ve" : "ma"}" style="font-size:32px">${pct(b.rend)}</div><div class="l">${b.n} signaux · ${b.g} gagnés</div></div>`;
+  return `<div class="carte kpi"><div class="l">${f === "basket" ? T("basket", "basketball") : "hockey"}</div><div class="v ${b.gain >= 0 ? "ve" : "ma"}" style="font-size:32px">${pct(b.rend)}</div><div class="l">${b.n} ${T("signaux", "signals")} · ${b.g} ${T("gagnés", "won")}</div></div>`;
 }).join("");
+}
 
 // ---------- courbes ----------
 function tracer(canvas, valeurs, coul) {
@@ -199,7 +242,7 @@ function tracer(canvas, valeurs, coul) {
   const mn = Math.min(...valeurs), mx = Math.max(...valeurs), m = 30, ech = mx - mn || 1;
   const px = i => m + (w - 2 * m) * i / (valeurs.length - 1), py = v => h - m - (h - 2 * m) * (v - mn) / ech;
   x.strokeStyle = "rgba(63,243,255,.12)"; x.fillStyle = "#6f86b3"; x.font = "12px Segoe UI";
-  for (let k = 0; k <= 4; k++) { const v = mn + ech * k / 4, y = py(v); x.beginPath(); x.moveTo(m, y); x.lineTo(w - m, y); x.stroke(); x.fillText(Math.round(v).toLocaleString("fr-FR"), 2, y - 4); }
+  for (let k = 0; k <= 4; k++) { const v = mn + ech * k / 4, y = py(v); x.beginPath(); x.moveTo(m, y); x.lineTo(w - m, y); x.stroke(); x.fillText(Math.round(v).toLocaleString(LOC), 2, y - 4); }
   const g = x.createLinearGradient(0, m, 0, h); g.addColorStop(0, coul + "55"); g.addColorStop(1, coul + "00");
   x.beginPath(); x.moveTo(px(0), h - m); valeurs.forEach((v, i) => x.lineTo(px(i), py(v))); x.lineTo(px(valeurs.length - 1), h - m); x.fillStyle = g; x.fill();
   x.beginPath(); valeurs.forEach((v, i) => x.lineTo(px(i), py(v))); x.strokeStyle = coul; x.lineWidth = 3; x.shadowColor = coul; x.shadowBlur = 14; x.stroke();
@@ -217,17 +260,17 @@ function rendreHistorique() {
     const ps = jours[j].sort((a, b) => a.date < b.date ? -1 : 1), s = ps.filter(p => p.gain !== null && p.gain !== undefined);
     const gj = s.reduce((t, p) => t + p.gain, 0), gg = s.filter(p => p.gain > 0).length;
     const lignes = ps.map(p => {
-      const st = p.gain === null || p.gain === undefined ? ["e", "EN COURS"] : p.gain > 0 ? ["g", "GAGNÉ"] : p.gain < 0 ? ["p", "PERDU"] : ["rb", "REMBOURSÉ"];
+      const st = p.gain === null || p.gain === undefined ? ["e", T("EN COURS", "PENDING")] : p.gain > 0 ? ["g", T("GAGNÉ", "WON")] : p.gain < 0 ? ["p", T("PERDU", "LOST")] : ["rb", T("REMBOURSÉ", "VOID")];
       const g = p.gain === null || p.gain === undefined ? "—" : (p.gain > 0 ? "+" : "") + eur(p.gain, 2);
-      const score = p.reel === null || p.reel === undefined ? "" : " · score " + p.reel;
+      const score = p.reel === null || p.reel === undefined ? "" : " · " + T("score", "score") + " " + p.reel;
       return `<div class="pari"><div class="meta">${heureParis(p.date)} · ${p.ligue}</div><div><span class="etq ${st[0]}">${st[1]}</span></div>
         <div class="match">${p.domicile} – ${p.exterieur}</div><div class="gain ${p.gain > 0 ? "ve" : p.gain < 0 ? "ma" : ""}">${g}</div>
-        <div class="sig">${libellePari(p)}</div><div class="chiffres">cote ${num(p.cote)}${score}</div></div>`;
+        <div class="sig">${libellePari(p)}</div><div class="chiffres">${T("cote", "odds")} ${num(p.cote)}${score}</div></div>`;
     }).join("");
     return `<details class="jour"${k < 3 ? " open" : ""}><summary><span class="d">${jourLong(j)}</span>
-      <span>${s.length ? `${gg} / ${s.length} gagnés · <span class="r ${gj >= 0 ? "ve" : "ma"}">${(gj >= 0 ? "+" : "") + eur(gj, 2)}</span>` : "<span class='or'>en cours</span>"}</span></summary>
+      <span>${s.length ? `${gg} / ${s.length} ${T("gagnés", "won")} · <span class="r ${gj >= 0 ? "ve" : "ma"}">${(gj >= 0 ? "+" : "") + eur(gj, 2)}</span>` : `<span class='or'>${T("en cours", "pending")}</span>`}</span></summary>
       <div class="carte" style="padding:0;margin-top:8px;overflow:hidden">${lignes}</div></details>`;
-  }).join("") || "<p>Aucun signal pour l'instant.</p>";
+  }).join("") || `<p>${T("Aucun signal pour l'instant.", "No signals yet.")}</p>`;
 }
 document.querySelectorAll("#filtres button").forEach(b => b.onclick = () => {
   document.querySelectorAll("#filtres button").forEach(x => x.classList.remove("actif")); b.classList.add("actif"); filtre = b.dataset.f; rendreHistorique(); });
@@ -255,10 +298,10 @@ function calculer(ev) {
   const mise0 = Math.max(0, Number(champMise.value) || 0);
   const miseDuCapital = c => !reinv ? mise0 : (misePerso ? Math.max(1, Math.round(mise0 * palier(c) / palier(depart))) : miseRecommandee(c));
   document.getElementById("mise").innerHTML = depart >= 100
-    ? `Conseil : <b class="cy" style="font-size:20px">${eur(conseil)}</b> par signal <small style="color:var(--gr)">(20 € par tranche de 1 000 € de capital, 2 %)</small>` +
-      (misePerso ? `<br><small style="color:var(--or)">Mise personnelle : ${eur(mise0)} (${depart ? (100 * mise0 / depart).toLocaleString("fr-FR", { maximumFractionDigits: 1 }) : 0} % du capital)</small> · <a href="#" id="revenir" style="color:var(--cy)">revenir au conseil</a>` : "") +
-      `<br><small style="color:var(--gr)">${reinv ? "Mise recalculée à chaque palier de 1 000 € franchi" : "Mise fixe pendant toute la période"}</small>`
-    : "Indiquez un capital d'au moins 100 €.";
+    ? `${T("Conseil :", "Suggested:")} <b class="cy" style="font-size:20px">${eur(conseil)}</b> ${T("par signal", "per signal")} <small style="color:var(--gr)">${T("(20 € par tranche de 1 000 € de capital, 2 %)", "(€20 per €1,000 of bankroll, 2%)")}</small>` +
+      (misePerso ? `<br><small style="color:var(--or)">${T("Mise personnelle :", "Your stake:")} ${eur(mise0)} (${depart ? (100 * mise0 / depart).toLocaleString(LOC, { maximumFractionDigits: 1 }) : 0} % ${T("du capital", "of bankroll")})</small> · <a href="#" id="revenir" style="color:var(--cy)">${T("revenir au conseil", "back to suggested")}</a>` : "") +
+      `<br><small style="color:var(--gr)">${reinv ? T("Mise recalculée à chaque palier de 1 000 € franchi", "Stake recalculated at every €1,000 step") : T("Mise fixe pendant toute la période", "Flat stake for the whole period")}</small>`
+    : T("Indiquez un capital d'au moins 100 €.", "Enter a bankroll of at least €100.");
   const lien = document.getElementById("revenir");
   if (lien) lien.onclick = e => { e.preventDefault(); misePerso = false; calculer(); };
   let c = depart, mises = 0, max = depart, min = depart, paliers = 0, miseCour = mise0; const serie = [c];
@@ -271,11 +314,11 @@ function calculer(ev) {
   }
   const gain = c - depart, j0 = soldes.length ? jourLong(jourParis(soldes[0].date)) : "—";
   document.getElementById("resultat").innerHTML = [
-    [eur(c), "capital aujourd'hui", "or"], [(gain >= 0 ? "+" : "") + eur(gain), "gain", gain >= 0 ? "ve" : "ma"],
-    [depart ? pct(gain / depart) : "—", "sur le capital", gain >= 0 ? "ve" : "ma"], [soldes.length, "signaux suivis", "cy"],
-    [eur(min), "point le plus bas", "ma"], [eur(miseDuCapital(c)), "mise actuelle", "cy"]]
+    [eur(c), T("capital aujourd'hui", "bankroll today"), "or"], [(gain >= 0 ? "+" : "") + eur(gain), T("gain", "profit"), gain >= 0 ? "ve" : "ma"],
+    [depart ? pct(gain / depart) : "—", T("sur le capital", "on bankroll"), gain >= 0 ? "ve" : "ma"], [soldes.length, T("signaux suivis", "signals followed"), "cy"],
+    [eur(min), T("point le plus bas", "lowest point"), "ma"], [eur(miseDuCapital(c)), T("mise actuelle", "current stake"), "cy"]]
     .map(([v, l, k]) => `<div><div class="v ${k}">${v}</div><div class="l">${l}</div></div>`).join("") +
-    `<div style="grid-column:1/-1;color:var(--gr);font-size:13px">Depuis le ${j0}, aux cotes réellement disponibles au moment de chaque signal${reinv ? ` · ${paliers} changement(s) de palier` : ""}.</div>`;
+    `<div style="grid-column:1/-1;color:var(--gr);font-size:13px">${T("Depuis le", "Since")} ${j0}, ${T("aux cotes réellement disponibles au moment de chaque signal", "at the odds actually available when each signal was sent")}${reinv ? ` · ${paliers} ${T("changement(s) de palier", "stake step change(s)")}` : ""}.</div>`;
   tracer(document.getElementById("courbeCalc"), serie, "#ffb03f");
 }
 ["input", "change", "keyup"].forEach(ev => ["capital", "reinvestir", "miseSaisie"].forEach(i => document.getElementById(i).addEventListener(ev, calculer)));
@@ -290,8 +333,8 @@ const PLAFOND_MISE = Infinity;   // plafond retire a la demande du superviseur (
 const premierJour = soldes.length ? new Date(soldes[0].date) : new Date();
 const joursEcoules = Math.max(1, (Date.now() - premierJour) / 86400000);
 const RYTHME = soldes.length / joursEcoules;                  // signaux par jour
-const SCENARIOS = [["Tendance actuelle", B.rend, "#4dff9a", "le même rendement que les signaux passés"],
-                   ["Prudent", B.rend / 2, "#3ff3ff", "deux fois moins que les signaux passés"]];
+const SCENARIOS = () => [[T("Tendance actuelle", "Current trend"), B.rend, "#4dff9a", T("le même rendement que les signaux passés", "the same yield as past signals")],
+                         [T("Prudent", "Cautious"), B.rend / 2, "#3ff3ff", T("deux fois moins que les signaux passés", "half the yield of past signals")]];
 let pMois = 3, pMisePerso = false;
 function projeter(ev) {
   const champ = document.getElementById("pMise");
@@ -302,17 +345,17 @@ function projeter(ev) {
   if (!pMisePerso) champ.value = conseil;
   const mise0 = Math.max(0, Number(champ.value) || 0);
   const miseDe = c => Math.min(PLAFOND_MISE, !reinv ? mise0 : (pMisePerso ? Math.max(1, Math.round(mise0 * palier(c) / palier(depart))) : miseRecommandee(c)));
-  document.getElementById("pConseil").innerHTML = `Conseil : <b class="cy">${eur(conseil)}</b> par signal` + (pMisePerso ? ` · <a href="#" id="pRevenir" style="color:var(--cy)">revenir au conseil</a>` : "");
+  document.getElementById("pConseil").innerHTML = `${T("Conseil :", "Suggested:")} <b class="cy">${eur(conseil)}</b> ${T("par signal", "per signal")}` + (pMisePerso ? ` · <a href="#" id="pRevenir" style="color:var(--cy)">${T("revenir au conseil", "back to suggested")}</a>` : "");
   const lien = document.getElementById("pRevenir"); if (lien) lien.onclick = e => { e.preventDefault(); pMisePerso = false; projeter(); };
   const n = Math.round(RYTHME * 30.4 * pMois), series = [], res = [];
-  SCENARIOS.forEach(([nom, rend, coul, sens]) => {
+  SCENARIOS().forEach(([nom, rend, coul, sens]) => {
     let c = depart; const s = [c];
     for (let i = 0; i < n; i++) { const m = miseDe(c); if (m > c) break; c += rend * m; s.push(c); }
-    series.push([s, coul]); res.push([nom, c, coul, `${pct(rend)} par mise · ${sens}`]);
+    series.push([s, coul]); res.push([nom, c, coul, `${pct(rend)} ${T("par mise", "per stake")} · ${sens}`]);
   });
   document.getElementById("pResultat").innerHTML = res.map(([nom, c, coul, desc]) =>
-    `<div><div class="l">${nom}</div><div style="color:var(--gr);font-size:12px;margin:2px 0 4px">${desc}</div><div class="v" style="color:${coul};text-shadow:0 0 14px ${coul}">${eur(c)}</div><div class="l">${(c - depart >= 0 ? "+" : "") + eur(c - depart)} · ×${(depart ? c / depart : 0).toLocaleString("fr-FR", { maximumFractionDigits: 1 })}</div></div>`).join("") +
-    `<div style="grid-column:1/-1;color:var(--gr);font-size:13px">≈ ${n} signaux en ${pMois} mois (rythme actuel : ${RYTHME.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} par jour)</div>`;
+    `<div><div class="l">${nom}</div><div style="color:var(--gr);font-size:12px;margin:2px 0 4px">${desc}</div><div class="v" style="color:${coul};text-shadow:0 0 14px ${coul}">${eur(c)}</div><div class="l">${(c - depart >= 0 ? "+" : "") + eur(c - depart)} · ×${(depart ? c / depart : 0).toLocaleString(LOC, { maximumFractionDigits: 1 })}</div></div>`).join("") +
+    `<div style="grid-column:1/-1;color:var(--gr);font-size:13px">≈ ${n} ${T("signaux en", "signals in")} ${pMois} ${T("mois", pMois > 1 ? "months" : "month")} (${T("rythme actuel :", "current pace:")} ${RYTHME.toLocaleString(LOC, { maximumFractionDigits: 1 })} ${T("par jour", "per day")})</div>`;
   tracerPlusieurs(document.getElementById("pCourbe"), series);
   document.getElementById("pNote").innerHTML = "";
 }
@@ -324,7 +367,7 @@ function tracerPlusieurs(canvas, series) {
   const mn = Math.min(...tout), mx = Math.max(...tout), m = 30, ech = mx - mn || 1, nmax = Math.max(...series.map(s => s[0].length)) - 1 || 1;
   const py = v => h - m - (h - 2 * m) * (v - mn) / ech;
   x.strokeStyle = "rgba(63,243,255,.12)"; x.fillStyle = "#6f86b3"; x.font = "12px Segoe UI";
-  for (let k = 0; k <= 4; k++) { const v = mn + ech * k / 4, y = py(v); x.beginPath(); x.moveTo(m, y); x.lineTo(w - m, y); x.stroke(); x.fillText(Math.round(v).toLocaleString("fr-FR"), 2, y - 4); }
+  for (let k = 0; k <= 4; k++) { const v = mn + ech * k / 4, y = py(v); x.beginPath(); x.moveTo(m, y); x.lineTo(w - m, y); x.stroke(); x.fillText(Math.round(v).toLocaleString(LOC), 2, y - 4); }
   series.forEach(([s, coul]) => { x.beginPath(); s.forEach((v, i) => x.lineTo(m + (w - 2 * m) * i / nmax, py(v))); x.strokeStyle = coul; x.lineWidth = 3; x.shadowColor = coul; x.shadowBlur = 12; x.stroke(); x.shadowBlur = 0; });
 }
 document.querySelectorAll("#pDuree button").forEach(b => b.onclick = () => {
@@ -344,25 +387,39 @@ function dejaInscrit() { try { return localStorage.getItem(CLE_INSCRIT); } catch
 function afficherDejaInscrit(pseudo) {
   const f = document.getElementById("formulaire");
   f.querySelectorAll("input,button").forEach(x => x.disabled = true);
-  f.querySelector("button").textContent = "DÉJÀ INSCRIT";
-  document.getElementById("retour").innerHTML = `<span class='ve'>Vous êtes déjà inscrit${pseudo ? " (" + pseudo.replace(/[<>&]/g, "") + ")" : ""}. Rendez-vous à l'ouverture en 2027 !</span>`;
+  f.querySelector("button").textContent = T("DÉJÀ INSCRIT", "ALREADY SIGNED UP");
+  document.getElementById("retour").innerHTML = `<span class='ve'>${T("Vous êtes déjà inscrit", "You are already on the list")}${pseudo ? " (" + pseudo.replace(/[<>&]/g, "") + ")" : ""}. ${T("Rendez-vous à l'ouverture en 2027 !", "See you at launch in 2027!")}</span>`;
 }
 if (dejaInscrit()) afficherDejaInscrit(dejaInscrit());
+// montant libre : visible seulement si "Autre montant" est choisi, jamais sous 20 EUR
+document.querySelectorAll("input[name=prix]").forEach(x => x.addEventListener("change", () => {
+  const libre = document.querySelector("input[name=prix]:checked").value === "libre";
+  document.getElementById("blocLibre").style.display = libre ? "inline-flex" : "none";
+  if (libre) document.getElementById("montantLibre").focus();
+}));
+// nom d'utilisateur Telegram : 5 a 32 caracteres, lettres, chiffres et _ ; le @ est ajoute s'il manque
+function nomTelegram(v) { const n = v.trim().replace(/^@+/, ""); return /^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(n) ? "@" + n : null; }
 document.getElementById("formulaire").addEventListener("submit", async ev => {
   ev.preventDefault();
   if (dejaInscrit()) { afficherDejaInscrit(dejaInscrit()); return; }
-  const pseudo = document.getElementById("pseudo").value.trim(), choix = document.querySelector("input[name=prix]:checked");
+  const pseudo = nomTelegram(document.getElementById("pseudo").value), choix = document.querySelector("input[name=prix]:checked");
   const piege = document.getElementById("site_web").value;
   const retour = document.getElementById("retour");
-  if (!pseudo || !choix) { retour.innerHTML = "<span class='ma'>Indiquez votre pseudo et un montant.</span>"; return; }
-  if (!ADRESSE_FORMULAIRE) { retour.innerHTML = "<span class='or'>Les inscriptions ouvrent très bientôt. Revenez dans quelques jours.</span>"; return; }
+  if (!pseudo) { retour.innerHTML = `<span class='ma'>${T("Nom d'utilisateur Telegram invalide : 5 à 32 caractères (lettres, chiffres, _), par exemple @jean_dupont.", "Invalid Telegram username: 5 to 32 characters (letters, digits, _), e.g. @john_smith.")}</span>`; return; }
+  if (!choix) { retour.innerHTML = `<span class='ma'>${T("Choisissez un montant.", "Choose an amount.")}</span>`; return; }
+  let montant = Number(choix.value);
+  if (choix.value === "libre") {
+    montant = Math.round(Number(document.getElementById("montantLibre").value));
+    if (!(montant >= 20)) { retour.innerHTML = `<span class='ma'>${T("Le montant minimum est de 20 € par mois.", "The minimum amount is €20 per month.")}</span>`; return; }
+  }
+  if (!ADRESSE_FORMULAIRE) { retour.innerHTML = `<span class='or'>${T("Les inscriptions ouvrent très bientôt.", "Sign-ups open very soon.")}</span>`; return; }
   try {
     const rep = await fetch(ADRESSE_FORMULAIRE, { method: "POST", headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                                                  body: JSON.stringify({ pseudo: pseudo, prix_par_mois: choix.value, _gotcha: piege }) });
-    retour.innerHTML = rep.ok ? "<span class='ve'>C'est noté ! Vous serez contacté en priorité à l'ouverture en 2027.</span>"
-                              : "<span class='ma'>L'envoi a échoué, réessayez dans un instant.</span>";
-    if (rep.ok) { try { localStorage.setItem(CLE_INSCRIT, pseudo); } catch (e) {} ev.target.reset(); setTimeout(() => afficherDejaInscrit(pseudo), 2500); }
-  } catch (e) { retour.innerHTML = "<span class='ma'>L'envoi a échoué, vérifiez votre connexion.</span>"; }
+                                                  body: JSON.stringify({ telegram: pseudo, prix_par_mois: montant + " € / mois", langue: LANG, _gotcha: piege }) });
+    retour.innerHTML = rep.ok ? `<span class='ve'>${T("C'est noté ! Vous serez contacté en priorité à l'ouverture en 2027.", "You're on the list! We'll contact you first at launch in 2027.")}</span>`
+                              : `<span class='ma'>${T("L'envoi a échoué, réessayez dans un instant.", "Sending failed, please try again in a moment.")}</span>`;
+    if (rep.ok) { try { localStorage.setItem(CLE_INSCRIT, pseudo); } catch (e) {} ev.target.reset(); document.getElementById("blocLibre").style.display = "none"; setTimeout(() => afficherDejaInscrit(pseudo), 2500); }
+  } catch (e) { retour.innerHTML = `<span class='ma'>${T("L'envoi a échoué, vérifiez votre connexion.", "Sending failed, check your connection.")}</span>`; }
 });
 
 // ---------- ciel anime et apparitions ----------
@@ -376,6 +433,16 @@ if ("IntersectionObserver" in window) {
 }
 // filet de securite : certains lecteurs integres (Telegram) ne declenchent pas l'observateur
 setTimeout(() => document.querySelectorAll(".apparait").forEach(e => e.classList.add("vu")), 1200);
-[rendreHistorique, () => tracer(document.getElementById("courbe"), courbe, "#4dff9a"), calculer, projeter, () => { taille(); anim(); }].forEach(f => { try { f(); } catch (e) { console.error(e); } });
-document.getElementById("maj").textContent = "Mis à jour le " + new Date(D.genere_le).toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
+function majDate() { document.getElementById("maj").textContent = T("Mis à jour le ", "Updated ") + new Date(D.genere_le).toLocaleString(LOC, { timeZone: "Europe/Paris" }); }
+function toutRendre() {
+  [rendreKpis, rendreHistorique, () => tracer(document.getElementById("courbe"), courbe, "#4dff9a"), calculer, projeter, majDate].forEach(f => { try { f(); } catch (e) { console.error(e); } });
+  if (dejaInscrit()) afficherDejaInscrit(dejaInscrit());
+}
+toutRendre(); taille(); anim();
+document.getElementById("langue").onclick = () => {
+  LANG = LANG === "en" ? "fr" : "en"; LOC = LANG === "en" ? "en-GB" : "fr-FR";
+  try { localStorage.setItem("betsmart_langue", LANG); } catch (e) {}
+  const url = new URL(location.href); url.searchParams.delete("lang"); history.replaceState(null, "", url);
+  appliquerLangue(); toutRendre();
+};
 </script></body></html>
